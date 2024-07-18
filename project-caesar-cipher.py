@@ -22,3 +22,7 @@ def decrypt(encrypt_text, shift_back_amount):
       decrypted_text += alphabet[new_position]
     print(f"The decoded text is {decrypted_text}")
 
+if direction == "encode":
+    encrypt(text, shift)
+elif direction == "decode":
+    decrypt(text, shift)
