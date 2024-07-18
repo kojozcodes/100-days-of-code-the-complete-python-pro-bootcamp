@@ -21,7 +21,7 @@ def caesar(cipher_text, shift_amount, cipher_direction):
         else:
             encrypted_or_decrypted_text += char
 
-    print(f"The {cipher_direction}d text is {encrypted_or_decrypted_text}")
+    print(f"The {cipher_direction}d text is {encrypted_or_decrypted_text}\n")
 
 from art import logo
 print(logo)
@@ -36,7 +36,7 @@ while should_continue:
     shift = shift % 26
     caesar(cipher_text=text, shift_amount=shift, cipher_direction=direction)
     
-    user_choice = input("Type 'yes' if you would you like to continue or 'no' if you don't want to continue.").lower()
+    user_choice = input("Type 'yes' if you would you like to continue or 'no' if you don't want to continue.\n").lower()
     if user_choice == "no":
         should_continue = False
         print("Goodbye")
