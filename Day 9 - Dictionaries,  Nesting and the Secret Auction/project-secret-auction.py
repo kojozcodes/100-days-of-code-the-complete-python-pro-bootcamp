@@ -34,4 +34,4 @@ while bidding_is_on:
             if bidders[name] > highest_bid:
                 highest_bid = bidders[name]
                 highest_bidder = name
-        print(f"The winner is {highest_bidder} with a bid of {highest_bid}")
+        print(f"The winner is {highest_bidder} with a bid of ${highest_bid}")
