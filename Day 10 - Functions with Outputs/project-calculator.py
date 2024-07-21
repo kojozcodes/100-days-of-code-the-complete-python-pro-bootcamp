@@ -18,15 +18,21 @@ operations = {
     "/": divide
 }
 
-num1 = int(input("What's the first number?: "))
 
+num1 = int(input("What's the first number?: "))
 for operation in operations:
     print(operation)
 
-operation_symbol = input("Pick an operation from the line above: ")
-num2 = int(input("What's the second number?: "))
+should_continue = True
+while should_continue:
+    operation_symbol = input("Pick an operation from the line above: ")
+    num2 = int(input("What's the second number?: "))
+    function_calcultion = operations[operation_symbol]
+    answer = function_calcultion(num1, num2)
 
-function_calcultion = operations[operation_symbol]
-answer = function_calcultion(num1, num2)
+    print(f"{num1} {operation_symbol} {num2} = {answer}")
 
-print(f"{num1} {operation_symbol} {num2} = {answer}")
+    if input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: ").lower() == 'y':
+        num1 = answer
+    else:
+        should_continue = False
