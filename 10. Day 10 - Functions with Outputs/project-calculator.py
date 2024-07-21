@@ -18,6 +18,9 @@ operations = {
     "/": divide
 }
 
+from art import logo
+print(logo)
+
 def calculator():
 
     num1 = float(input("What's the first number?: "))
