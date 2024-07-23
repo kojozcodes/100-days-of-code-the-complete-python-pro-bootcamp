@@ -30,19 +30,30 @@ start_game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
-def deal_card():
+player_cards = []
+computer_cards = []
 
-    player_cards = []
-    computer_cards = []
+def deal_cards(num_cards):
 
-    for num in range(2):
+    for num in range(num_cards):
         player_cards.append(cards[random.randint(0, len(cards) - 1)])
         computer_cards.append(cards[random.randint(0, len(cards) - 1)])
 
-    print(player_cards)
-    print(computer_cards)
+    player_score = calculate_score(player_cards)
+    print(f"Your cards: {player_cards} and your current score {player_score}")
+    print(f"Computer's first card: {computer_cards[0]}")
+
+def calculate_score(card_list):
+    total_score = 0
+
+    for score in card_list:
+        total_score += score
+
+    return total_score
 
 
+
+deal_card()
 
 #Hint 2: Read this breakdown of program requirements: 
 #   http://listmoz.com/view/6h34DJpvJBFVRlZfJvxF
