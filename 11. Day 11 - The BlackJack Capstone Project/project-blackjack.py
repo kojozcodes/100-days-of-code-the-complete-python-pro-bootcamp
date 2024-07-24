@@ -24,37 +24,6 @@
 #Then try out the completed Blackjack project here: 
 #   https://appbrewery.github.io/python-day11-demo/
 
-import random
-
-start_game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
-
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-
-player_cards = []
-computer_cards = []
-
-def deal_cards(num_cards):
-
-    for num in range(num_cards):
-        player_cards.append(cards[random.randint(0, len(cards) - 1)])
-        computer_cards.append(cards[random.randint(0, len(cards) - 1)])
-
-    player_score = calculate_score(player_cards)
-    print(f"Your cards: {player_cards} and your current score {player_score}")
-    print(f"Computer's first card: {computer_cards[0]}")
-
-def calculate_score(card_list):
-    total_score = 0
-
-    for score in card_list:
-        total_score += score
-
-    return total_score
-
-
-
-deal_card()
-
 #Hint 2: Read this breakdown of program requirements: 
 #   http://listmoz.com/view/6h34DJpvJBFVRlZfJvxF
 #Then try to create your own flowchart for the program.
@@ -64,19 +33,29 @@ deal_card()
 
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 #11 is the Ace.
-#cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+import random
 
-#Hint 5: Deal the user and computer 2 cards each using deal_card() and append().
-#user_cards = []
-#computer_cards = []
+def deal_card():
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10] 
+    return random.choice(cards)
 
-#Hint 6: Create a function called calculate_score() that takes a List of cards as input 
-#and returns the score. 
-#Look up the sum() function to help you do this.
+def calculate_score(card_list):
+    if len(card_list) == 2 and sum(card_list) == 21:
+        return 0
 
-#Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the actual score. 0 will represent a blackjack in our game.
+    if 11 in card_list and sum(card_list) > 21:
+            card_list.remove(11)
+            card_list.append(1)
 
-#Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to look up append() and remove().
+    return sum(card_list)
+
+player_cards = []
+computer_cards = []
+
+for times in range(2):
+    player_cards.append(deal_card())
+    computer_cards.append(deal_card())
+
 
 #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
 
