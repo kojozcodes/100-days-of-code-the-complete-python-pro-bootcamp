@@ -36,10 +36,12 @@
 import random
 
 def deal_card():
+    """It returns a random card from the list/deck of cards"""
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10] 
     return random.choice(cards)
 
 def calculate_score(card_list):
+    """It takes a list of cards, calculates and returns the score"""
     if len(card_list) == 2 and sum(card_list) == 21:
         return 0
 
@@ -51,10 +53,16 @@ def calculate_score(card_list):
 
 player_cards = []
 computer_cards = []
+is_game_over = False
 
 for times in range(2):
     player_cards.append(deal_card())
     computer_cards.append(deal_card())
+
+player_score = calculate_score(player_cards)
+computer_score = calculate_score(computer_cards)
+print(f"Your cards: {player_cards}, current_score: {player_score}")
+print(f"Computer first card: {computer_cards[0]}")
 
 
 #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
