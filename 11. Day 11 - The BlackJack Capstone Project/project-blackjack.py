@@ -71,10 +71,14 @@ another_card = input("Type 'y' to get another card, type 'n' to pass")
 
 if another_card == 'y':
     player_cards.append(deal_card())
+    calculate_score(player_cards)
 else:
     while computer_score < 17:
         computer_cards.append(deal_card())
         calculate_score(computer_cards)
+
+print(f"Your final hand: {player_cards}, final score: {player_score}")
+print(f"Computer's final hand: {computer_cards}, final score: {computer_score}")
 
 if computer_score == player_score:
     print("It's a draw")
