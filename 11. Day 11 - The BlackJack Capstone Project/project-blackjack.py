@@ -74,6 +74,14 @@ if another_card == 'y':
 else:
     while computer_score < 17:
         computer_cards.append(deal_card())
+        calculate_score(computer_cards)
+
+if computer_score == player_score:
+    print("It's a draw")
+elif player_score > computer_score:
+    print("You win")
+else:
+    print("You lose")
 #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
 
 #Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
