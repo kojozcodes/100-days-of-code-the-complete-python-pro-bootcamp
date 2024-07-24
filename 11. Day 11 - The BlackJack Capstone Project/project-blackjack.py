@@ -64,6 +64,8 @@ computer_score = calculate_score(computer_cards)
 print(f"Your cards: {player_cards}, current_score: {player_score}")
 print(f"Computer first card: {computer_cards[0]}")
 
+if player_score > 21 or player_score == 0 or computer_score == 0:
+    is_game_over = True
 
 #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
 
