@@ -20,3 +20,16 @@ if game_level < 5:
     new_enemy = enemies[0]    # Block level variable
 
 print(new_enemy)    # It will print
+
+# Modifying Global Scope
+
+enemies = 1
+
+def increase_enemies():
+    # global enemies (Using the global keyword allows you to modify the global varibale but IT IS NOT ADVISABLE)
+    # enemies = 2 (this will create a local scope and won't modify the global variable) or enemies += 1 (will not work)
+    print(f"enemies inside function: {enemies}")
+    return enemies + 1
+
+enemies = increase_enemies() # This method is better (by returning from the function and modifying outside the function)
+print(f"enemies outside function: {enemies}")
