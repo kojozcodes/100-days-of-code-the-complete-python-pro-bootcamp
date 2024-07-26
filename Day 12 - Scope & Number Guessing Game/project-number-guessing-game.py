@@ -1,12 +1,15 @@
 import random
 from art import logo
 
+EASY_LIVES = 10
+HARD_LIVES = 5
+
 def check_wrong_guess(guess, number):
     if guess > number:
         return "Too High."
     else:
         return "Too Low."
-        
+
 print(logo)
 print("Welcome to the Number Guessing Game")
 print("I'm thinking of a number between 1 and 100")
@@ -17,9 +20,9 @@ print(number_to_guess)
 difficulty = input("Choose a difficulty. Type 'easy' or 'hard: ").lower()
 
 if difficulty == 'easy':
-    lives = 10
+    lives = EASY_LIVES
 else:
-    lives = 5
+    lives = HARD_LIVES
 
 is_game_over = False
 
@@ -37,6 +40,8 @@ while lives > 0 and not is_game_over:
     else:
         print(check_wrong_guess(guess, number_to_guess))
         lives -= 1
+        if lives > 0:
+            print("Guess again")
 
 if lives == 0:
     print("You've run out of guesses, you lose.")
