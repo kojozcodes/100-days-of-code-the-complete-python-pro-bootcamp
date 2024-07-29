@@ -5,7 +5,7 @@ print(logo)
 
 #Assign Celeb to variables function
 #Takes celeb at random
-def assign_celeb():
+def assign():
     return random.choice(data)
 
 #compare two celebs function
