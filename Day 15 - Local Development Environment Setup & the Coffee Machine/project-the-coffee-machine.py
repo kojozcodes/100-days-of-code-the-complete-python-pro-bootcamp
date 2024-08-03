@@ -30,14 +30,37 @@ resources = {
     "coffee": 100,
 }
 
+# TODO 3: Print report.
+
+
+def report():
+    for resource in resources:
+        if resource == "water" or resource == "milk":
+            print(f"{resource}: {resources[resource]}ml")
+        elif resource == "coffee":
+            print(f"{resource}: {resources[resource]}g")
+        else:
+            print((f"{resource}: ${resources[resource]}"))
 # TODO 1: Prompt user by asking “What would you like? (espresso/latte/cappuccino):”
 
 
+is_on = True
+
+while is_on:
+
+    user_choice = input("What would you like? (espresso/latte/cappuccino: ").lower()
+    if user_choice == "espresso":
+        print("espresso")
+    elif user_choice == "latte":
+        print("latte")
+    elif user_choice == "cappuccino":
+        print("cappuccino")
+    elif user_choice == "report":
+        report()
+
 # TODO 2: Turn off the Coffee Machine by entering “off” to the prompt
-
-
-# TODO 3: Print report.
-
+    elif user_choice == "off":
+        is_on = False
 
 # TODO 4: Check resources sufficient?
 
@@ -49,3 +72,4 @@ resources = {
 
 
 # TODO 7: Make Coffee.
+print("hello")
