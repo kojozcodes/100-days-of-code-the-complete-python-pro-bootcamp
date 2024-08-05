@@ -41,7 +41,6 @@ def generate_report():
             print(f"{resource.title()}: ${resources[resource]}")
 
 
-
 # TODO: 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):
 coffee_choice = input("What would you like? (espresso/latte/cappuccino): ")
 if coffee_choice == "espresso":
@@ -51,10 +50,10 @@ elif coffee_choice == "latte":
 elif coffee_choice == "cappuccino":
     print("cappuccino")
 
-# TODO: 2. Turn off the Coffee Machine by entering "off" to the prompt
-elif coffee_choice == "off":
-    print("off")
-
 # TODO: 3. Print report.
 elif coffee_choice == "report":
     generate_report()
+
+# TODO: 2. Turn off the Coffee Machine by entering "off" to the prompt
+elif coffee_choice == "off":
+    print("off")
