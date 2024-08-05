@@ -30,9 +30,17 @@ resources = {
     "coffee": 100,
 }
 
+
 def generate_report():
     for resource in resources:
-        print(f"{resource.title()}: {resources[resource]}")
+        if resource == "water" or resource == "milk":
+            print(f"{resource.title()}: {resources[resource]}ml")
+        elif resource == "coffee":
+            print(f"{resource.title()}: {resources[resource]}g")
+        elif resource == "money":
+            print(f"{resource.title()}: ${resources[resource]}")
+
+
 
 # TODO: 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):
 coffee_choice = input("What would you like? (espresso/latte/cappuccino): ")
