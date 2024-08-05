@@ -32,6 +32,7 @@ resources = {
 
 
 def generate_report():
+    """Ir generates a report on the available resources in the coffee machine"""
     for resource in resources:
         if resource == "water" or resource == "milk":
             print(f"{resource.title()}: {resources[resource]}ml")
@@ -42,20 +43,26 @@ def generate_report():
 
 
 def check_resources_sufficient(coffee, machine_resources):
+    """
+        It takes the coffee type the user wants and the available resources in the machine,
+        to determine if the machine can produce the coffee
+    """
     coffee_ingredients = MENU[coffee]["ingredients"]
-    for ingredient in MENU[coffee]["ingredients"]:
-        for resource in machine_resources:
-            if ingredient in machine_resources and ingredient == resource:
-                if machine_resources[resource] >= coffee_ingredients[ingredient]:
-                    print(True)
-                else:
-                    print(False)
+
+    for ingredient in coffee_ingredients:
+        if ingredient in machine_resources:
+            if machine_resources[ingredient] < coffee_ingredients[ingredient]:
+                print(f"Sorry there is not enough {ingredient}.")
+                return False
+            machine_resources[ingredient] = machine_resources[ingredient] - coffee_ingredients[ingredient]
+
+    return True
 
 
 # TODO: 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):
 coffee_choice = input("What would you like? (espresso/latte/cappuccino): ")
 if coffee_choice == "espresso":
-    check_resources_sufficient(coffee_choice, resources)
+    print(check_resources_sufficient(coffee_choice, resources))
 elif coffee_choice == "latte":
     check_resources_sufficient(coffee_choice, resources)
 elif coffee_choice == "cappuccino":
