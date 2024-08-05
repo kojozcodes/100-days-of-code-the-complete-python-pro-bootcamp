@@ -38,3 +38,7 @@ elif coffee_choice == "latte":
     print("latte")
 elif coffee_choice == "cappuccino":
     print("cappuccino")
+
+# TODO: 2. Turn off the Coffee Machine by entering "off" to the prompt
+elif coffee_choice == "off":
+    print("off")
