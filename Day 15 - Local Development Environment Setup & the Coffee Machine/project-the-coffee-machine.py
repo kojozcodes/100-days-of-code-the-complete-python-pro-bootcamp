@@ -30,3 +30,11 @@ resources = {
     "coffee": 100,
 }
 
+# TODO: 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):
+coffee_choice = input("What would you like? (espresso/latte/cappuccino): ")
+if coffee_choice == "espresso":
+    print("espresso")
+elif coffee_choice == "latte":
+    print("latte")
+elif coffee_choice == "cappuccino":
+    print("cappuccino")
