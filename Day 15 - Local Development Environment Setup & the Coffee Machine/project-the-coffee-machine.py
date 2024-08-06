@@ -59,14 +59,27 @@ def check_resources_sufficient(coffee, machine_resources):
     return True
 
 
+def process_coins(quarter, dime, nickel, penny):
+    return (quarter * 0.25) + (dime * 0.10) + (nickel * 0.05) + (penny * 0.01)
+
+
 # TODO: 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):
-coffee_choice = input("What would you like? (espresso/latte/cappuccino): ")
-if coffee_choice == "espresso":
-    print(check_resources_sufficient(coffee_choice, resources))
-elif coffee_choice == "latte":
-    check_resources_sufficient(coffee_choice, resources)
-elif coffee_choice == "cappuccino":
-    check_resources_sufficient(coffee_choice, resources)
+coffee_choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
+
+if coffee_choice == "espresso" or coffee_choice == "latte" or coffee_choice == "cappuccino":
+    if check_resources_sufficient(coffee_choice, resources):
+        print(coffee_choice)
+
+        print("Please insert coins.")
+
+        quarters = float(input("How many quarters?: ")) * 0.25
+        dimes = float(input("How many dimes?: ")) * 0.10
+        nickles = float(input("How many nickles?: ")) * 0.05
+        pennies = float(input("How many quarters?: ")) * 0.01
+        total_coins = process_coins(quarters, dimes, nickles, pennies)
+
+        print(total_coins)
+
 
 # TODO: 3. Print report.
 elif coffee_choice == "report":
@@ -82,5 +95,7 @@ elif coffee_choice == "off":
 #             calc = resources[resource] - MENU["latte"]["ingredients"][ingredient]
 #             resources[resource] = calc
 #             print(calc)
+
+# "{:.2f}".format(bill_per_person)
 
 generate_report()
