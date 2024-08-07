@@ -32,7 +32,7 @@ resources = {
 
 
 def generate_report():
-    """Ir generates a report on the available resources in the coffee machine"""
+    """It generates a report on the available resources in the coffee machine"""
     for resource in resources:
         if resource == "water" or resource == "milk":
             print(f"{resource.title()}: {resources[resource]}ml")
@@ -58,10 +58,14 @@ def check_resources_sufficient(coffee, machine_resources):
 
 
 def process_coins(quarter, dime, nickel, penny):
+    """It takes four different coins, converts them to dollars and add them up together"""
     return (quarter * 0.25) + (dime * 0.10) + (nickel * 0.05) + (penny * 0.01)
 
 
 def check_transaction_successful(coffee, coins):
+    """It takes the choice of coffee of the user and the money they put.
+        It checks if the total money put in the machine meets the cost of making the coffee
+    """
     coffee_price = MENU[coffee]["cost"]
     if coins < coffee_price:
         print("Sorry that's not enough money. Money refunded.")
@@ -76,7 +80,6 @@ is_on = True
 profit = 0
 
 while is_on:
-    # TODO: 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):
     coffee_choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
 
     if coffee_choice == "espresso" or coffee_choice == "latte" or coffee_choice == "cappuccino":
@@ -98,11 +101,9 @@ while is_on:
                 resources["money"] = profit
                 print(f"Here is your {coffee_choice}. Enjoy!")
 
-    # TODO: 3. Print report.
     elif coffee_choice == "report":
         generate_report()
 
-    # TODO: 2. Turn off the Coffee Machine by entering "off" to the prompt
     elif coffee_choice == "off":
         print("Goodbye!")
         is_on = False
@@ -114,6 +115,3 @@ while is_on:
 #             resources[resource] = calc
 #             print(calc)
 
-#
-
-generate_report()
