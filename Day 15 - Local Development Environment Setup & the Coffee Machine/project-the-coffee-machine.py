@@ -54,8 +54,6 @@ def check_resources_sufficient(coffee, machine_resources):
             if machine_resources[ingredient] < coffee_ingredients[ingredient]:
                 print(f"Sorry there is not enough {ingredient}.")
                 return False
-            machine_resources[ingredient] = machine_resources[ingredient] - coffee_ingredients[ingredient]
-
     return True
 
 
@@ -93,8 +91,12 @@ while is_on:
             total_coins = process_coins(quarters, dimes, nickles, pennies)
 
             if check_transaction_successful(coffee_choice, total_coins):
+                for coffee_ingredient in MENU[coffee_choice]["ingredients"]:
+                    if coffee_ingredient in resources:
+                        resources[coffee_ingredient] -= MENU[coffee_choice]["ingredients"][coffee_ingredient]
                 profit += MENU[coffee_choice]["cost"]
                 resources["money"] = profit
+                print(f"Here is your {coffee_choice}. Enjoy!")
 
     # TODO: 3. Print report.
     elif coffee_choice == "report":
