@@ -75,12 +75,12 @@ def check_transaction_successful(coffee, coins):
 
 
 is_on = True
+profit = 0
 
 while is_on:
     # TODO: 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):
     coffee_choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
 
-    profit = 0
     if coffee_choice == "espresso" or coffee_choice == "latte" or coffee_choice == "cappuccino":
         if check_resources_sufficient(coffee_choice, resources):
 
