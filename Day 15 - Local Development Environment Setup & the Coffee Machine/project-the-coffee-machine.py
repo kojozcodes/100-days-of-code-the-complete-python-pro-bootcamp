@@ -63,31 +63,47 @@ def process_coins(quarter, dime, nickel, penny):
     return (quarter * 0.25) + (dime * 0.10) + (nickel * 0.05) + (penny * 0.01)
 
 
-# TODO: 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):
-coffee_choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
-
-if coffee_choice == "espresso" or coffee_choice == "latte" or coffee_choice == "cappuccino":
-    if check_resources_sufficient(coffee_choice, resources):
-        print(coffee_choice)
-
-        print("Please insert coins.")
-
-        quarters = float(input("How many quarters?: ")) * 0.25
-        dimes = float(input("How many dimes?: ")) * 0.10
-        nickles = float(input("How many nickles?: ")) * 0.05
-        pennies = float(input("How many quarters?: ")) * 0.01
-        total_coins = process_coins(quarters, dimes, nickles, pennies)
-
-        print(total_coins)
+def check_transaction_successful(coffee, coins):
+    coffee_price = MENU[coffee]["cost"]
+    if coins < coffee_price:
+        print("Sorry that's not enough money. Money refunded.")
+        return False
+    if coins > coffee_price:
+        change = "{:.2f}".format(coins - coffee_price)
+        print(f"Here is ${change} dollars in change")
+    return True
 
 
-# TODO: 3. Print report.
-elif coffee_choice == "report":
-    generate_report()
+is_on = True
 
-# TODO: 2. Turn off the Coffee Machine by entering "off" to the prompt
-elif coffee_choice == "off":
-    print("off")
+while is_on:
+    # TODO: 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):
+    coffee_choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
+
+    profit = 0
+    if coffee_choice == "espresso" or coffee_choice == "latte" or coffee_choice == "cappuccino":
+        if check_resources_sufficient(coffee_choice, resources):
+
+            print("Please insert coins.")
+
+            quarters = float(input("How many quarters?: ")) * 0.25
+            dimes = float(input("How many dimes?: ")) * 0.10
+            nickles = float(input("How many nickles?: ")) * 0.05
+            pennies = float(input("How many quarters?: ")) * 0.01
+            total_coins = process_coins(quarters, dimes, nickles, pennies)
+
+            if check_transaction_successful(coffee_choice, total_coins):
+                profit += MENU[coffee_choice]["cost"]
+                resources["money"] = profit
+
+    # TODO: 3. Print report.
+    elif coffee_choice == "report":
+        generate_report()
+
+    # TODO: 2. Turn off the Coffee Machine by entering "off" to the prompt
+    elif coffee_choice == "off":
+        print("Goodbye!")
+        is_on = False
 
 # for ingredient in MENU["latte"]["ingredients"]:
 #     for resource in resources:
@@ -96,6 +112,6 @@ elif coffee_choice == "off":
 #             resources[resource] = calc
 #             print(calc)
 
-# "{:.2f}".format(bill_per_person)
+#
 
 generate_report()
