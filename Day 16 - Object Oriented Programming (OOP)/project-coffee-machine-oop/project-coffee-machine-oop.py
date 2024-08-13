@@ -14,16 +14,15 @@ while is_on:
     if choice == "off":
         print("Goodbye!")
         is_on = False
-
     elif choice == "report":
         coffee_maker.report()
         money_machine.report()
+    else:
+        coffee_menu_dictionary = coffee_menu.menu
+        for coffee_type in range(len(coffee_menu_dictionary)):
+            if choice == coffee_menu_dictionary[coffee_type].name:
 
-    elif choice == coffee_menu.find_drink(choice).name:
+                if coffee_maker.is_resource_sufficient(coffee_menu_dictionary[coffee_type]):
 
-        coffee_drink = coffee_menu.find_drink(choice)
-
-        if coffee_maker.is_resource_sufficient(coffee_drink):
-
-            if money_machine.make_payment(coffee_drink.cost):
-                coffee_maker.make_coffee(coffee_drink)
+                    if money_machine.make_payment(coffee_menu_dictionary[coffee_type].cost):
+                        coffee_maker.make_coffee(coffee_menu_dictionary[coffee_type])
