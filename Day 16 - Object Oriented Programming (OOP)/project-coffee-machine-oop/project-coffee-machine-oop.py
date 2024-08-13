@@ -9,3 +9,14 @@ money_machine = MoneyMachine()
 espresso = coffee_menu.find_drink("espresso")
 latte = coffee_menu.find_drink("latte")
 cappuccino = coffee_menu.find_drink("cappuccino")
+
+
+
+choice = input(f"What would you like to order? ({coffee_menu.get_items()}): ").lower()
+
+if choice == "off":
+    print("Goodbye!")
+    is_on = False
+elif choice == "report":
+    coffee_machine.report()
+    money_machine.report()
