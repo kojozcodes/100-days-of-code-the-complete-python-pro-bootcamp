@@ -87,10 +87,10 @@ while is_on:
 
             print("Please insert coins.")
 
-            quarters = float(input("How many quarters?: ")) * 0.25
-            dimes = float(input("How many dimes?: ")) * 0.10
-            nickles = float(input("How many nickles?: ")) * 0.05
-            pennies = float(input("How many quarters?: ")) * 0.01
+            quarters = float(input("How many quarters?: "))
+            dimes = float(input("How many dimes?: "))
+            nickles = float(input("How many nickles?: "))
+            pennies = float(input("How many quarters?: "))
             total_coins = process_coins(quarters, dimes, nickles, pennies)
 
             if check_transaction_successful(coffee_choice, total_coins):
