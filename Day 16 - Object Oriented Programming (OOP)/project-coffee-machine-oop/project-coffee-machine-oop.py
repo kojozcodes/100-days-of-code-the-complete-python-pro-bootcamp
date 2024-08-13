@@ -6,10 +6,6 @@ coffee_menu = Menu()
 coffee_machine = CoffeeMaker()
 money_machine = MoneyMachine()
 
-espresso = coffee_menu.find_drink("espresso")
-latte = coffee_menu.find_drink("latte")
-cappuccino = coffee_menu.find_drink("cappuccino")
-
 is_on = True
 
 while is_on:
