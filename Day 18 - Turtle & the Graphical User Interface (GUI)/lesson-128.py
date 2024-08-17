@@ -64,10 +64,9 @@ def draw_shape(num_sides):
 
 
 base_shape_sides = 3
-while base_shape_sides <= 10:
+for shape_side in range(base_shape_sides, 10):
     timmy.color(random.choice(colors))
-    draw_shape(base_shape_sides)
-    base_shape_sides += 1
+    draw_shape(shape_side)
 
 screen = Screen()
 screen.exitonclick()
