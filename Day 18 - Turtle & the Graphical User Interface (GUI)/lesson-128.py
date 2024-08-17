@@ -1,3 +1,4 @@
+from math import degrees
 from turtle import Turtle, Screen
 
 timmy = Turtle()
@@ -26,11 +27,25 @@ timmy.color("red")
 
 
 ########### Challenge 2 - Draw a Dashed Line ########
-for line in range(15):
-    timmy.forward(10)
-    timmy.penup()
-    timmy.forward(10)
-    timmy.pendown()
+# for line in range(15):
+#     timmy.forward(10)
+#     timmy.penup()
+#     timmy.forward(10)
+#     timmy.pendown()
+#
+
+########### Challenge 3 - Draw Shapes ########
+def draw_shape(num_sides):
+    degree_turn = 360/num_sides
+    for side in range(num_sides):
+        timmy.right(degree_turn)
+        timmy.forward(100)
+
+
+base_shape_sides = 3
+while base_shape_sides <= 10:
+    draw_shape(base_shape_sides)
+    base_shape_sides += 1
 
 screen = Screen()
 screen.exitonclick()
