@@ -1,5 +1,26 @@
 from math import degrees
 from turtle import Turtle, Screen
+import random
+
+colors = [
+    "Black", "Blue", "BlueViolet", "Brown", "CadetBlue", "Chocolate",
+    "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod",
+    "DarkGray", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen",
+    "DarkOrange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen",
+    "DarkSlateBlue", "DarkSlateGray", "DarkTurquoise", "DarkViolet",
+    "DeepPink", "DeepSkyBlue", "DimGray", "DodgerBlue", "FireBrick",
+    "ForestGreen", "Fuchsia", "Gray", "Green", "Indigo", "Maroon",
+    "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple",
+    "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen",
+    "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "Navy",
+    "Olive", "OliveDrab", "OrangeRed", "Orchid", "Purple",
+    "Red", "RoyalBlue", "SaddleBrown", "SeaGreen", "Sienna",
+    "SlateBlue", "SlateGray", "SteelBlue", "Teal", "Tomato",
+    "Turquoise", "Violet"
+]
+
+
+
 
 timmy = Turtle()
 timmy.shape("turtle")
@@ -44,6 +65,7 @@ def draw_shape(num_sides):
 
 base_shape_sides = 3
 while base_shape_sides <= 10:
+    timmy.color(random.choice(colors))
     draw_shape(base_shape_sides)
     base_shape_sides += 1
 
