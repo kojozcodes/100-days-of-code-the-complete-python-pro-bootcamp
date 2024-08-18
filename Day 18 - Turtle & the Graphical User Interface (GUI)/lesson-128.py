@@ -19,12 +19,14 @@ colors = [
     "Turquoise", "Violet"
 ]
 
-
-
+directions = [0, 90, 180, 270]
 
 timmy = Turtle()
 timmy.shape("turtle")
 timmy.color("red")
+timmy.speed(10)
+timmy.pensize(10)
+
 # timmy.forward(100)
 # timmy.backward(200)
 # timmy.right(90)
@@ -56,17 +58,25 @@ timmy.color("red")
 #
 
 ########### Challenge 3 - Draw Shapes ########
-def draw_shape(num_sides):
-    degree_turn = 360/num_sides
-    for side in range(num_sides):
-        timmy.right(degree_turn)
-        timmy.forward(100)
+# def draw_shape(num_sides):
+#     degree_turn = 360/num_sides
+#     for side in range(num_sides):
+#         timmy.right(degree_turn)
+#         timmy.forward(100)
+#
+#
+# base_shape_sides = 3
+# for shape_side in range(base_shape_sides, 10):
+#     timmy.color(random.choice(colors))
+#     draw_shape(shape_side)
 
 
-base_shape_sides = 3
-for shape_side in range(base_shape_sides, 10):
+########### Challenge 4 - Random Walk ########
+
+for _ in range(200):
+    timmy.forward(20)
     timmy.color(random.choice(colors))
-    draw_shape(shape_side)
+    timmy.setheading(random.choice(directions))
 
 screen = Screen()
 screen.exitonclick()
