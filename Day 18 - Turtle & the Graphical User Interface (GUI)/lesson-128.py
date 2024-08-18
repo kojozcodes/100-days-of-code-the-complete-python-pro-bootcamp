@@ -14,8 +14,8 @@ def random_color():
     return color
 
 directions = [0, 90, 180, 270]
-timmy.speed(10)
-timmy.pensize(10)
+timmy.speed(0)
+# timmy.pensize(10)
 
 # timmy.forward(100)
 # timmy.backward(200)
@@ -63,10 +63,19 @@ timmy.pensize(10)
 
 ########### Challenge 4 - Random Walk ########
 
-for _ in range(200):
-    timmy.forward(20)
-    timmy.color(random_color())
-    timmy.setheading(random.choice(directions))
+# for _ in range(200):
+#     timmy.forward(20)
+#     timmy.color(random_color())
+#     timmy.setheading(random.choice(directions))
+
+########### Challenge 5 - Spirograph ########
+def draw_spirograph(space_size):
+    for _ in range(int(360 / space_size)):
+        timmy.color(random_color())
+        timmy.circle(100)
+        timmy.setheading(timmy.heading() + space_size)
+
+draw_spirograph(5)
 
 screen = Screen()
 screen.exitonclick()
