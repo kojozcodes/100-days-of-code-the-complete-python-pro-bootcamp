@@ -1,29 +1,19 @@
+import turtle
 from math import degrees
 from turtle import Turtle, Screen
 import random
 
-colors = [
-    "Black", "Blue", "BlueViolet", "Brown", "CadetBlue", "Chocolate",
-    "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod",
-    "DarkGray", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen",
-    "DarkOrange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen",
-    "DarkSlateBlue", "DarkSlateGray", "DarkTurquoise", "DarkViolet",
-    "DeepPink", "DeepSkyBlue", "DimGray", "DodgerBlue", "FireBrick",
-    "ForestGreen", "Fuchsia", "Gray", "Green", "Indigo", "Maroon",
-    "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple",
-    "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen",
-    "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "Navy",
-    "Olive", "OliveDrab", "OrangeRed", "Orchid", "Purple",
-    "Red", "RoyalBlue", "SaddleBrown", "SeaGreen", "Sienna",
-    "SlateBlue", "SlateGray", "SteelBlue", "Teal", "Tomato",
-    "Turquoise", "Violet"
-]
+timmy = Turtle()
+turtle.colormode(255)
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    color = (r, g, b)
+    return color
 
 directions = [0, 90, 180, 270]
-
-timmy = Turtle()
-timmy.shape("turtle")
-timmy.color("red")
 timmy.speed(10)
 timmy.pensize(10)
 
@@ -75,7 +65,7 @@ timmy.pensize(10)
 
 for _ in range(200):
     timmy.forward(20)
-    timmy.color(random.choice(colors))
+    timmy.color(random_color())
     timmy.setheading(random.choice(directions))
 
 screen = Screen()
