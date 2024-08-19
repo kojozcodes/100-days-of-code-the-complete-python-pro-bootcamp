@@ -1,5 +1,8 @@
 # ###This code will not work in repl.it as there is no access to the colorgram package here.###
 # ##We talk about this in the video tutorials##
+import turtle
+from turtle import Turtle, Screen
+import random
 # import colorgram
 #
 # rgb_colors = []
@@ -13,6 +16,11 @@
 #
 # print(rgb_colors)
 
+timmy = Turtle()
+turtle.colormode(255)
+timmy.home()
+timmy.speed(0)
+
 color_list = [
     (202, 164, 110), (240, 245, 241), (236, 239, 243), (149, 75, 50),
     (222, 201, 136), (53, 93, 123), (170, 154, 41), (138, 31, 20),
@@ -22,3 +30,19 @@ color_list = [
     (19, 86, 89), (82, 148, 129), (147, 17, 19), (27, 68, 102),
     (12, 70, 64), (107, 127, 153), (176, 192, 208), (168, 99, 102)
 ]
+
+vertical_gap = 50
+
+for _ in range(100):
+    timmy.pendown()
+    timmy.dot(20, random.choice(color_list))
+    timmy.penup()
+    timmy.forward(50)
+    if timmy.xcor() == 500.0:
+        timmy.home()
+        timmy.sety(vertical_gap)
+        vertical_gap += 50
+timmy.home()
+
+screen = Screen()
+screen.exitonclick()
