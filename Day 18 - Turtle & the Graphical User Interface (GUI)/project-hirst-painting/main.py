@@ -32,18 +32,16 @@ color_list = [
     (12, 70, 64), (107, 127, 153), (176, 192, 208), (168, 99, 102)
 ]
 
-vertical_gap = -250
-
+vertical_gap = 50
 timmy.setx(-250)
-timmy.sety(vertical_gap)
+timmy.sety(-250)
 
 for _ in range(100):
     timmy.dot(20, random.choice(color_list))
     timmy.forward(50)
     if timmy.xcor() == 250.0:
         timmy.setx(-250)
-        vertical_gap += 50
-        timmy.sety(vertical_gap)
+        timmy.sety(timmy.ycor() + vertical_gap)
 timmy.home()
 
 screen = Screen()
