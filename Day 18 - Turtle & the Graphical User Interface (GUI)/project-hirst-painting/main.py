@@ -42,7 +42,8 @@ for _ in range(100):
     if timmy.xcor() == 250.0:
         timmy.setx(-250)
         timmy.sety(timmy.ycor() + vertical_gap)
-timmy.home()
+    print(timmy.position())
+timmy.hideturtle()
 
 screen = Screen()
 screen.exitonclick()
