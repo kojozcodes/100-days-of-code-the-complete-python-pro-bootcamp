@@ -20,6 +20,7 @@ timmy = Turtle()
 turtle.colormode(255)
 timmy.home()
 timmy.speed(0)
+timmy.penup()
 
 color_list = [
     (202, 164, 110), (240, 245, 241), (236, 239, 243), (149, 75, 50),
@@ -31,17 +32,18 @@ color_list = [
     (12, 70, 64), (107, 127, 153), (176, 192, 208), (168, 99, 102)
 ]
 
-vertical_gap = 50
+vertical_gap = -250
+
+timmy.setx(-250)
+timmy.sety(vertical_gap)
 
 for _ in range(100):
-    timmy.pendown()
     timmy.dot(20, random.choice(color_list))
-    timmy.penup()
     timmy.forward(50)
-    if timmy.xcor() == 500.0:
-        timmy.home()
-        timmy.sety(vertical_gap)
+    if timmy.xcor() == 250.0:
+        timmy.setx(-250)
         vertical_gap += 50
+        timmy.sety(vertical_gap)
 timmy.home()
 
 screen = Screen()
