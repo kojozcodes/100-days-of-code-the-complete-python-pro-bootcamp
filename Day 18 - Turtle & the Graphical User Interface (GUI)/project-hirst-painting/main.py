@@ -21,6 +21,7 @@ turtle.colormode(255)
 timmy.home()
 timmy.speed(0)
 timmy.penup()
+timmy.hideturtle()
 
 color_list = [
     (202, 164, 110), (240, 245, 241), (236, 239, 243), (149, 75, 50),
@@ -43,7 +44,6 @@ for _ in range(100):
         timmy.setx(-250)
         timmy.sety(timmy.ycor() + vertical_gap)
     print(timmy.position())
-timmy.hideturtle()
 
 screen = Screen()
 screen.exitonclick()
